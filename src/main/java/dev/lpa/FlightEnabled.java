@@ -11,4 +11,12 @@ public interface FlightEnabled {
     void land();
 
     void fly();
+
+    default FlightStages transition(FlightStages stage) {
+//        System.out.println("transition not implemented on " + this.getClass().getName());
+//        return null;
+        FlightStages nextStage = stage.getNextStage();
+        System.out.println("Transitioning from " +  stage + " to " + nextStage);
+        return nextStage;
+    }
 }

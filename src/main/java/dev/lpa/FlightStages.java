@@ -12,4 +12,9 @@ public enum FlightStages implements Trackable {
             System.out.println("Monitoring " + this);
         }
     }
+
+    public FlightStages getNextStage() {
+        FlightStages[] allStages = values();
+        return allStages[(ordinal() + 1) % allStages.length];
+    }
 }
